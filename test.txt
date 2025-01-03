@@ -1,3 +1,0 @@
-Bonjour le monde
-Bienvenue dans get_next_line
-Ceci est un test

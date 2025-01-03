@@ -85,6 +85,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	while (s2[j] != '\0')
 		s3[i++] = s2[j++];
 	s3[i] = '\0';
+	free((char *)s1);
 	return (s3);
 }
 size_t	ft_strlen(const char *str)

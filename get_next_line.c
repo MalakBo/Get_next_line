@@ -6,8 +6,10 @@ char *get_buffer(int fd,char *result)
     buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
     if(!buff)
         return (NULL);
-    while((i = read(fd,buff,BUFFER_SIZE)) > 0)
+    i = 1;
+    while(i > 0)
     {
+        i = read(fd,buff,BUFFER_SIZE);
         if(i == -1)
         {
             free(buff);
@@ -32,7 +34,7 @@ char *get_f(char *res)
     i = 0;
     while(res[i] && res[i] != '\n')
         i++;
-    while(res[i] == '\n')
+    if(res[i] == '\n')
         i++;
     line = ft_substr(res,0,i);
     return(line);
@@ -45,7 +47,7 @@ char *get_n(char *res)
     i = 0;
     while(res[i] && res[i] != '\n')
         i++;
-    while(res[i] == '\n')
+    if(res[i] == '\n')
         i++;
     line = ft_substr(res,i,ft_strlen(res) - i);
     free(res);
@@ -55,26 +57,20 @@ char *get_next_line(int fd)
 {
     static char *res;
     char *line;
-
-    if(fd < 0 || BUFFER_SIZE <= 0)
+    
+    if(fd < 0 || BUFFER_SIZE <= 0 )
         return (NULL);
     res = get_buffer(fd,res);
-    if(!res)
+    if (!res || *res == '\0')
+    {
+        if (res)
+            free(res);
+        res = NULL;
         return (NULL);
+    }
     line = get_f(res);
     res = get_n(res);
     return(line);
 }
-int main()
-{ 
-    int fd = open("test.txt",O_RDONLY);
-    char *line;
-    while((line = get_next_line(fd)))
-    {
-        printf("%s\n",line);
-        free(line);
-    }
-    close(fd);
-    return (0);
-}
+
 
