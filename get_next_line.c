@@ -1,5 +1,5 @@
 #include "get_next_line.h"
-char *get_buffer(int fd,char *result)
+char *get_buffer(int fd,char *res)
 {
     int i;
     char *buff;
@@ -13,18 +13,18 @@ char *get_buffer(int fd,char *result)
         if(i == -1)
         {
             free(buff);
-            free(result);
+            free(res);
             return (NULL);
         }
         if(i == 0)
             break;
         buff[i] = '\0';
-        result = ft_strjoin(result,buff);
+        res = ft_strjoin(res,buff);
         if(ft_strchr(buff,'\n'))
             break;
     }
     free(buff);
-    return (result);
+    return (res);
 }
 char *get_f(char *res)
 {
