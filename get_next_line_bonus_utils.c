@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus_utils.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbouyi <mbouyi@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/04 18:38:05 by mbouyi            #+#    #+#             */
+/*   Updated: 2025/01/04 22:36:35 by mbouyi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
 char	*ft_strchr(char *s, int c)
 {
 	int	i;
@@ -17,6 +29,7 @@ char	*ft_strchr(char *s, int c)
 		return ((char *)(s + i));
 	return (0);
 }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	n;
@@ -43,6 +56,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dest[i] = '\0';
 	return (dest);
 }
+
 char	*ft_strdup(const char *s)
 {
 	int		i;
@@ -60,6 +74,7 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
+
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	size_t	i;
@@ -88,6 +103,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	free((char *)s1);
 	return (s3);
 }
+
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
