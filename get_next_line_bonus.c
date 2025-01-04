@@ -6,7 +6,7 @@
 /*   By: mbouyi <mbouyi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:40:31 by mbouyi            #+#    #+#             */
-/*   Updated: 2025/01/04 22:38:00 by mbouyi           ###   ########.fr       */
+/*   Updated: 2025/01/04 23:35:21 by mbouyi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*get_buffer(int fd, char *res)
 	ssize_t	i;
 	char	*buff;
 
-	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buff = malloc(((size_t)BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
 		return (NULL);
 	i = 1;

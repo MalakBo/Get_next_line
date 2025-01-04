@@ -6,14 +6,18 @@
 /*   By: mbouyi <mbouyi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 18:38:45 by mbouyi            #+#    #+#             */
-/*   Updated: 2025/01/04 22:38:18 by mbouyi           ###   ########.fr       */
+/*   Updated: 2025/01/04 23:28:54 by mbouyi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2
+#  define BUFFER_SIZE 42
+# endif
+# if BUFFER_SIZE < 0
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
 # endif
 # include <fcntl.h>
 # include <stdio.h>
